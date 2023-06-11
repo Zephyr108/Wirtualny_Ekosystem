@@ -7,35 +7,31 @@ Organizm::Organizm(unsigned short dlugoscZycia,
     kosztPotomka(kosztPotomka),
     licznikZycia(dlugoscZycia),
     licznikPosilkow(0)
-{
 
+{
+   // Tutaj juz nic nie trzeba
 }
 
 bool Organizm::posilek()
 {
-    if(glodny()){
+    if(glodny())
+    {
         licznikPosilkow++;
         return true;
-    }
-    else{
-        return false;
-    }
+    } else return false;
 }
 
 bool Organizm::potomek()
 {
     if(paczkujacy()){
-        licznikPosilkow-=kosztPotomka;
+        licznikPosilkow -= kosztPotomka;
         return true;
-    }
-    else{
-        return false;
-    }
+    }else return false;
 }
 
 void Organizm::krokSymulacji()
 {
-    if(zywy()){
-        licznikZycia--;
-    }
+    if(zywy()) licznikZycia --;
 }
+
+

@@ -1,4 +1,6 @@
+
 #include "mieszkaniec.h"
+
 Mieszkaniec::Mieszkaniec(char _symbol)
 {
     symbol = _symbol;
@@ -6,7 +8,7 @@ Mieszkaniec::Mieszkaniec(char _symbol)
 
 Mieszkaniec::Mieszkaniec(const Mieszkaniec &mieszkaniec)
 {
-    symbol = mieszkaniec.symbol;
+    symbol=mieszkaniec.symbol;
 }
 
 char Mieszkaniec::jakiSymbol() const

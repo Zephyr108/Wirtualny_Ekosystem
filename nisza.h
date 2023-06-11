@@ -1,13 +1,17 @@
+#include <sasiedztwo.h>
+#include <mieszkaniec.h>
+#include <srodowisko.h>
 #ifndef NISZA_H
 #define NISZA_H
-#include "sasiedztwo.h"
-#include "mieszkaniec.h"
+
+
+
 
 class Nisza
 {
+    friend void Srodowisko::wykonajAkcje(unsigned int wiersz, unsigned int kolumna);
 private:
     Mieszkaniec * lokator;
-
 public:
     Nisza();
     Nisza(Nisza & innaNisza);
@@ -19,10 +23,9 @@ public:
 
     Mieszkaniec * oddajLokatora();
 
-    bool zajeta() const {return lokator !=nullptr;}
+    bool zajeta()const {return lokator != nullptr;}
 
-    RodzajMieszkanca ktoTuMieszka()
-    {
+    RodzajMieszkanca ktoTuMieszka() {
         return zajeta() ? lokator->kimJestes(): PUSTKA;
     }
 
@@ -31,18 +34,17 @@ public:
 
 private:
 
-    ZamiarMieszkanca aktywujLokatora(Sasiedztwo sasiedztwo)
+    ZamiarMieszkanca aktywujLokatora(
+                                Sasiedztwo sasiedztwo)
     {
         return lokator->wybierzAkcje(sasiedztwo);
     }
 
-    Mieszkaniec * wypuscPotomka()
-    {
+    Mieszkaniec * wypuscPotomka() {
         return lokator->dajPotomka();
     }
 
-    void przyjmijZdobycz(Mieszkaniec * ofiara)
-    {
+    void przyjmijZdobycz(Mieszkaniec * ofiara) {
         lokator->przyjmijZdobycz(ofiara);
     }
 };
